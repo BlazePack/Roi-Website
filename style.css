@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  transition: background 0.5s ease;
+  background: linear-gradient(to bottom right, #00172D, #002244);
+}
+
+nav {
+  background-color: #3a73c7;
+  padding: 1em;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+header {
+  background: #002244; /* Distinct blue shade for header */
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+.theme-slider {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 20px 60px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.theme-slider.hidden {
+  transform: translate(-50%, 90%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+#toggleBtn {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  border: none;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+}
+
+.theme-slider.hidden + #toggleBtn,
+.theme-slider.hidden ~ #toggleBtn {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+/* Custom metallic blue slider styles */
+.slider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #3a5ba0 0%, #6fa3ef 100%);
+  outline: none;
+  opacity: 0.85;
+  box-shadow: 0 2px 8px rgba(58,91,160,0.15);
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #b0c4de 0%, #3a5ba0 100%);
+  border: 2px solid #6fa3ef;
+  box-shadow: 0 2px 6px rgba(58,91,160,0.25);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #b0c4de 0%, #3a5ba0 100%);
+  border: 2px solid #6fa3ef;
+  box-shadow: 0 2px 6px rgba(58,91,160,0.25);
+  cursor: pointer;
+}
+
+.slider::-ms-fill-lower {
+  background: #3a5ba0;
+}
+.slider::-ms-fill-upper {
+  background: #6fa3ef;
+}
+
+input[type=range].slider:focus {
+  outline: none;
+  opacity: 1;
+}
